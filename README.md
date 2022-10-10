@@ -13,6 +13,7 @@ All video chunks are after download squashed to the one file with FFMPEG.
 3. with a browser console at a `Network` tab clear everything
 4. jump to the end of the video stream
 5. copy the URL of the latest stream chunk in format `https://streaming.hrt.hr/webstream/smil:<STREAM_ID>.smil/media_b2896000_<NUMBER_OF_CHUNKS + 1>.ts`
+6. take `STREAM_ID` and `NUMBER_OF_CHUNKS + 1` then update `STREAMS` config variable in `index.js` to download specific stream
 
 ## Optionally  
 
