@@ -7,7 +7,7 @@ const DIRECTORY = `./downloads/juhuhu/psici-u-ophodnji`;
 const REMOVE_SECONDS_FROM_START = 4;
 const REMOVE_SECONDS_FROM_END = 3;
 
-const streams = [
+const STREAMS = [
     // { id: 'VCHMEdDvjkTnAXah', videos: 20, sid: '001', duration: 205, title: 'Filmska večer', },
     { id: 'gYtGrvKbVgP8zKyh', videos: 22, sid: '002', duration: 225, title: 'Vulkanska erupcija' },
     { id: '23Bw8fZU52HbcJCq', videos: 17, sid: '003', duration: 178, title: 'Ukrasna ploča' },
@@ -78,8 +78,8 @@ function printProgress(text) {
 }
 
 const download = async () => {
-  for (let i = 0; i < streams.length; i++) {
-      const stream = streams[i];
+  for (let i = 0; i < STREAMS.length; i++) {
+      const stream = STREAMS[i];
       for (let j = 0; j <= stream.videos; j++) {
           const url = `https://streaming.hrt.hr/webstream/smil:${stream.id}.smil/media_b2896000_${j}.ts`;
           const downloader = new Downloader({
@@ -88,7 +88,7 @@ const download = async () => {
               fileName: `${stream.sid} - ${stream.title} - ${j}.ts`,
               cloneFiles: false,
               onProgress: function (percentage, chunk, remainingSize) {
-                const title = `${i + 1}/${streams.length} - ${j}/${stream.videos} - ${stream.sid} - ${stream.title} - ${j}.ts`;
+                const title = `${i + 1}/${STREAMS.length} - ${j}/${stream.videos} - ${stream.sid} - ${stream.title} - ${j}.ts`;
                 printProgress(`${title} ${percentage}%`);
               },
           });
@@ -106,7 +106,7 @@ const mergeSingleTsFile = () => {
     
     let waitingPromises = 0;
     
-    for (let i = 0; i < streams.length; i++) {
+    for (let i = 0; i < STREAMS.length; i++) {
       const filePaths = [];
       
       // Just for a faster development
@@ -114,7 +114,7 @@ const mergeSingleTsFile = () => {
       //   break;
       // }
       
-      const stream = streams[i];
+      const stream = STREAMS[i];
       for (let j = 0; j <= stream.videos; j++) {
         const fileName = `${process.cwd()}/${directory}/${stream.sid} - ${stream.title} - ${j}.ts`;
         filePaths.push(fileName);

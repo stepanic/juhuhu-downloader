@@ -1,5 +1,11 @@
 # Juhuhu Downloader
 
+Simple downloader which takes the array of streams with defined duration and number of sub-streams and make an offline version of Juhuhu videos.
+
+It uses an example of Paw Patrol series https://juhuhu.hrt.hr/emisija/96/psici-u-ophodnji without ads on the start and on ont end of each video file and excludes the streams which have any dragon :))
+
+All video chunks are after download squashed to the one file with FFMPEG.
+
 ## How to use it
 
 1. open any stream at https://juhuhu.hrt.hr/
