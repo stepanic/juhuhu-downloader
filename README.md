@@ -27,3 +27,21 @@ All video chunks are after download squashed to the one file with FFMPEG.
     - using of https://www.npmjs.com/package/nodejs-web-scraper would be nice
 
 - wrap the script to the Electron Desktop app
+
+## Known issues
+
+### Try again with another internet connection
+
+```
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+
+[Error: 4861629952:error:1408F119:SSL routines:ssl3_get_record:decryption failed or bad record mac:../deps/openssl/openssl/ssl/record/ssl3_record.c:677:
+] {
+  library: 'SSL routines',
+  function: 'ssl3_get_record',
+  reason: 'decryption failed or bad record mac',
+  code: 'ERR_SSL_DECRYPTION_FAILED_OR_BAD_RECORD_MAC'
+}
+```
