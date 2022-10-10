@@ -8,12 +8,14 @@ All video chunks are after download squashed to the one file with FFMPEG.
 
 ## How to use it
 
+0. `npm install`
 1. open any stream at https://juhuhu.hrt.hr/
 2. play a stream
 3. with a browser console at a `Network` tab clear everything
 4. jump to the end of the video stream
 5. copy the URL of the latest stream chunk in format `https://streaming.hrt.hr/webstream/smil:<STREAM_ID>.smil/media_b2896000_<NUMBER_OF_CHUNKS + 1>.ts`
-6. take `STREAM_ID` and `NUMBER_OF_CHUNKS + 1` then update `STREAMS` config variable in `index.js` to download specific stream
+6. take `STREAM_ID` and `NUMBER_OF_CHUNKS + 1` then update `STREAMS` config variable at properties `id` and `videos` in `index.js` to download specific stream
+7. run script with `node index.js`
 
 ## Optionally  
 
